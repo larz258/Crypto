@@ -1,0 +1,105 @@
+Crypto Change Log
+Current Version 1.4.5
+
+Alpha 0.0.1:
+*Added encode
+
+
+Aplha 0.0.2:
+*Added decode
+*Added key input
+
+
+Alpha 0.0.9:
+*Added encode/decode option
+*Added file support
+*Added file selection
+*Added write to file
+
+
+Beta 0.1:
+*Now only the correct key will write to file.
+*If the correct key is not entered 
+the key promt will present itself again
+*Program closes if a correct guess is not made after four attempts
+
+
+Beta 0.2:
+*Fixed ascii range bug
+
+
+Beta 0.3:
+*Added dependant file for use with user generated keys.
+
+
+Beta 0.4:
+*Added new_key and default_key options at start to switch between a
+user generated key and the default key.
+*New_key generates a new key for the user and saves it to
+Depend.txt
+
+
+Beta 0.7:
+* Added support for alpha-numberic passwords
+* Added support for special characters in passwords
+(passwords can now have any character in the ascii range 0 - 255)
+(yes even characters 0 - 31, if you can learn how to type them.)
+* Bug Fixes
+* Now erases the file, when there are no guesses left
+* Now checks to see if a user key exists
+and asks for permission before overwriting it.
+
+
+Beta 0.9 and initial release:
+* Built gui
+* Implemented gui
+* Program quits when mode is changed
+* Added refresh button because time.sleep()
+is not working correctly
+(Will be replaced if time.sleep or self.after()
+can be made to work correctly)
+* Added a dialogue Box
+* Added a output Box
+(the gui is now self sufficient)
+* All known bugs were fixed
+* Button alignment was fixed
+* All alignment was fixed
+* Now program can reload itself either via mode change button or refresh 
+button.
+* Program quits when there are no guesses left
+* Added decimal module to make sure only the correct key will work
+
+
+Release 1.1:
+* Program no longer quits when mode is changed.
+* Fixed sleep, removed reset button.
+(considering adding it back as a clear console button)
+* Setup pack_forget so that the window doesn't jump to the starting
+place when the ui is refreshed.
+* Platform independance added with #!/usr/bin/python
+
+
+Release 1.2:
+* Added try and except for non-intereger key guesses on default key mode
+* Added support for all file types
+* Fixed massive ascii bug related to encoding all file types
+* Created version for Python 3.x.x
+
+
+Release 1.3:
+* Checks to see if a user key exists before creating a new one.
+* Requests old user key before creating new key.
+
+
+Release 1.4:
+* Made an intuitive launcher that determines the version of Python you are 
+using and executes the source accordingly.
+* Made Crypto.py launcher return a message if it doesn't support the version 
+of Python that was attempted. Currently it supports Python 2.7, 3.0, and 3.3
+* Create Key now asks if you would like to overwrite an existing key. If the 
+user says no it simply switches to the custom key mode with the current user 
+key. (If the user says yes, you will have to input the old user key before 
+creating a new one)
+
+
+END CHANGE LOG
