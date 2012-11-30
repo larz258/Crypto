@@ -13,11 +13,11 @@ use this program on sentsitive data.
 2. How is Crypto used?
 
 Crypto is just a script, so it does not need to be installed. To 
-run it use your terminal's python commmand or right click on and 
-select open with Python Launcher. I've provided a version for Python 2 and 
-Python 3, Crypto.py will intuitively launch the version your system requires.
+run Crypto use your Terminal's Python command from the Crypto directory
+or right click on and select open with Python Launcher. I've provided 
+a version for Python 2.7, 3.0 and 3.3, Crypto.py will intuitively launch 
+the version you're using.
 (slow clap)
-
 
 Once you have opened the program simply select encode and pick a 
 file. 
