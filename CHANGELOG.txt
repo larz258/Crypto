@@ -107,6 +107,10 @@ creating a new one)
 * K900 gave me code to perform a version check in the same script as the main program
 (Now everything fits in one nice small script.)
 * Changed to GPLv3 License
+* Updated variable/function/class names to PEP8 standard. 
+(will tackle indenting next.)
+* Switched to "from io import open" for Python 2.7
+as suggested by takluyver (Reddit)
 
 
 END CHANGE LOG
