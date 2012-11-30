@@ -3,12 +3,10 @@
 Crypto - Substitution Cipher
 Copyright 2012 Lars Schweighauser
 
-This work is licensed under the Creative Commons 
-Attribution-NonCommercial-ShareAlike 3.0 United States License. 
-To view a copy of this license, 
-visit http://creativecommons.org/licenses/by-nc-sa/3.0/us/ 
-or send a letter to Creative Commons, 
-444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+This work is licensed under the GPLv3
+A version should have been included with Crypto (LICENSE.txt)
+If you cannot find it, you can read the full license at:
+http://opensource.org/licenses/gpl-3.0.html
 
 ---
 
@@ -439,6 +437,8 @@ class Crypto(Frame):
 	def Create_and_Quit(self, depend_file):
 		if self.lines_dependant[3] != "\n":
 			Overwrite_key_Option = askquestion("User Key Found!", "There is already a user key, would you like to overwrite it?")
+			
+			
 			if Overwrite_key_Option == "yes":
 				start.Encode_Object.Create_Key_Check(depend_file)
 			

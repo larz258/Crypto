@@ -106,6 +106,7 @@ creating a new one)
 * Added CC Lincense
 * K900 gave me code to perform a version check in the same script as the main program
 (Now everything fits in one nice small script.)
+* Changed to GPLv3 License
 
 
 END CHANGE LOG
