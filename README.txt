@@ -1,5 +1,5 @@
 Crypto - Substitution Cipher
-Copyright 2012, Lars Schweighauser
+Copyright 2012 Lars Schweighauser
 This work is licensed under the GPLv3
 A version should have been included with Crypto (LICENSE.txt)
 If you cannot find it, you can read the full license at:
@@ -18,10 +18,8 @@ use this program to attempt to disguise sentsitive data.
 
 Crypto is just a script, so it does not need to be installed. To 
 run it use your terminal's python commmand or right click on and 
-select open with Python Launcher. I've provided a version for Python 2 and 
-Python 3, Crypto.py will intuitively launch the version your system requires.
-(slow clap)
-
+select open with Python Launcher. Crypto supports Python 2.7, 3.0 and 3.3
+intuitively. (Thanks K900)
 
 Once you have opened the program simply select encode and pick a 
 file. 
@@ -31,23 +29,22 @@ so that you can be sure it worked.
 Decoding is a bit more complex as it requires a key. 
 By default the key is: 481282871733
 However you can change it at anytime by pressing Create New Key
-(After creating a key, you can switch back to the default key by pressing 
+(After creating a key you can switch back to the default key by pressing 
 Default Key)
 
 Crypto only gives you 4 guesses to enter the right key, if you run 
-out of guesses Crypto will erase the contents of the file your are 
+out of guesses Crypto will erase the contents of the file you are 
 trying to decode, so it is vitally important to only use Crypto on 
 backups. 
-SERIOUSLY ONLY BACKUPS, UNLESS YOU KNOW WHAT YOU ARE DOING!
+SERIOUSLY ONLY BACKUPS UNLESS YOU KNOW WHAT YOU ARE DOING!
 
 After succesfully decoding a file Crypto will print the contents of that
-file to the screen, that way you can read the decoded message without
+file to the screen that way you can read the decoded message without
 launching another program.
 
-Crypto always encodes files the same, so it doesn't matter which decode 
-mode you use to decode a file. This means you can send an encoded file to 
-a friend and they will be able to decode it will no worries
-(even if you oth have seperate custom keys).
+Crypto always encodes files the same, so it doesn't matter which key
+you use to decode a file. This means you can send an encoded file to 
+a friend and they will be able to decode it will no worries.
 
 
 
