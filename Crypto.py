@@ -54,7 +54,7 @@ else:
 getcontext().prec = 100
 
 
-class Encrypt():
+class Encrypt(object):
 
 
 	def __init__(self, root):
@@ -369,7 +369,7 @@ class Encrypt():
 		return
 				
 				
-class Crypto(Frame):
+class Crypto(Frame, object):
 
 
 	def init_ui(self, parent):
@@ -475,7 +475,7 @@ class Crypto(Frame):
 	
 	
 	
-class Main():
+class Main(object):
 
 
 	def __main__(self):

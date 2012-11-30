@@ -111,6 +111,8 @@ creating a new one)
 (will tackle indenting next.)
 * Switched to "from io import open" for Python 2.7
 as suggested by takluyver (Reddit)
+* Switched to new style classes
+as suggested by kbrafford (Reddit)s
 
 
 END CHANGE LOG
