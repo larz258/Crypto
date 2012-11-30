@@ -1,5 +1,5 @@
 Crypto Change Log
-Current Version 1.4.7
+Current Version 1.4.8
 
 Alpha 0.0.1:
 *Added encode
@@ -103,6 +103,6 @@ creating a new one)
 * Removed possible errors for input == NoneType and for non-existant files
 (Both errors that come up when a user presses cancel in Tkinter)
 *Fixed a bug that prevented decode from working correctly.
-
+* Added CC Lincense
 
 END CHANGE LOG

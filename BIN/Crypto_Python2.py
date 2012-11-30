@@ -1,13 +1,21 @@
 '''
+Crypto - Substitution Cipher
+Copyright, 2012, Lars Schweighauser
+This program is free under the Creative Commons Non-Comercial Share Alike license
+You should have recieved a version of this license with Crypto,
+however if you did not you can read it at:
+http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+
+---
+
 The default key is: 481282871733
 No other number will work in default mode
-python 2.x.x compatable 
-Copyright: Lars Schweighauser, 2012
+python 2.7 compatable 
 '''
 
 #!/usr/bin/python
 
-Version = "1.4.7 Py2"
+Version = "1.4.8 Py2"
 Status = "Stable"
 
 

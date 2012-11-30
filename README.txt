@@ -1,4 +1,9 @@
-Crpyto Version 1.4.7
+Crypto - Substitution Cipher
+Copyright 2012, Lars Schweighauser
+This program is free under the Creative Commons Non-Comercial Share Alike license
+You should have recieved a version of this license with Crypto,
+however if you did not you can read it at:
+http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 
 
 1. What is Crypto?

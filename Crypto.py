@@ -1,8 +1,15 @@
+'''
+Crypto - Substitution Cipher
+Copyright, 2012, Lars Schweighauser
+This program is free under the Creative Commons Non-Comercial Share Alike license
+You should have recieved a version of this license with Crypto,
+however if you did not you can read it at:
+http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+'''
 
 import sys
 import os
 vers = str(sys.version)
-#print (vers[0:5:1])
 
 if vers[0] == "2":
 
