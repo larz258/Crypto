@@ -1,9 +1,11 @@
 Crypto - Substitution Cipher
 Copyright 2012, Lars Schweighauser
-This program is free under the Creative Commons Non-Comercial Share Alike license
-You should have recieved a version of this license with Crypto,
-however if you did not you can read it at:
-http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+This work is licensed under the Creative Commons 
+Attribution-NonCommercial-ShareAlike 3.0 United States License. 
+To view a copy of this license, 
+visit http://creativecommons.org/licenses/by-nc-sa/3.0/us/ 
+or send a letter to Creative Commons, 
+444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
 
 
 1. What is Crypto?
