@@ -6,7 +6,7 @@ Crpyto Version 1.4.7
 Crypto is a simple substition cipher that can be used to encrypt files. 
 It should be noted this program is not intended to keep files secure, it 
 is more of a concept than anything. It is important that you know not to 
-use this program to attempt to disguise sentsitive data.
+use this program on sentsitive data.
 
 
 
