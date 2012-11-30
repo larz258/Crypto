@@ -1,4 +1,4 @@
-Crpyto Version 1.4.5
+Crpyto Version 1.4.6
 
 
 1. What is Crypto?

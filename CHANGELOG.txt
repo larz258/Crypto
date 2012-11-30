@@ -1,5 +1,5 @@
 Crypto Change Log
-Current Version 1.4.5
+Current Version 1.4.6
 
 Alpha 0.0.1:
 *Added encode
@@ -100,6 +100,8 @@ of Python that was attempted. Currently it supports Python 2.7, 3.0, and 3.3
 user says no it simply switches to the custom key mode with the current user 
 key. (If the user says yes, you will have to input the old user key before 
 creating a new one)
+* Removed possible errors for input == NoneType and for non-existant files
+(Both errors that come up when a user presses cancel in Tkinter)
 
 
 END CHANGE LOG
