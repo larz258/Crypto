@@ -7,7 +7,7 @@ Copyright: Lars Schweighauser, 2012
 
 #!/usr/bin/python
 
-Version = "1.4.5 Py2"
+Version = "1.4.7 Py2"
 Status = "Stable"
 
 
@@ -91,76 +91,87 @@ class Encrypt():
 	def Decode_File(self, file, guess_numb):
 		result = ""
 		
-
-		if guess_numb == 0:
-			start.gui.write("You have no more guesses.\n")
-
-			file_read = open(file, 'r')
-			lines = file_read.readlines()
-			file_read.close()
-
-			lines[:] = []
-			file_write = open(file, 'w')
-			file_write.writelines(lines)
-			start.gui.quit()
-			return
-			
 				
-		else:
-			key_guess = start.gui.get_string("Guess", "Give me a key to try:")
-			
-			if key_guess != None:
-			
+		key_guess = start.gui.get_string("Guess", "Give me a key to try:")
+		
+		if key_guess != None:
+		
 
-				guess_numb -= 1
+			guess_numb -= 1
+
+			try:
+				
+				key_guess = int(key_guess)
+				
+				if Decimal(key_guess) / Decimal(str(53475874637)) == 9.0:
+
+					file_read = open(file, 'r')
+					lines = file_read.readlines()
+
+
+					for item in lines:
+						result += self.decode(key_guess, item)
+
+					file_read.close()
+
+					file_write = open(file, 'w')
+					file_write.writelines(result)
+					start.gui.write(result + "\n")
+					return
+
+
+				if guess_numb < 1:
+					start.gui.write("You have no more guesses.\n")
+
+					file_read = open(file, 'r')
+					lines = file_read.readlines()
+					file_read.close()
+
+					lines[:] = []
+					file_write = open(file, 'w')
+					file_write.writelines(lines)
+					start.gui.quit()
+
+
+				elif guess_numb == 1:
+					start.gui.write("You have " + str(guess_numb) + " guess left.\n")
+			
+					self.Decode_File(file, guess_numb)
+
+
+				elif guess_numb > 1:
+					start.gui.write("You have " + str(guess_numb) + " guesses left.\n")
+			
+					self.Decode_File(file, guess_numb)
 	
-				try:
-					
-					key_guess = int(key_guess)
-					
-					if Decimal(key_guess) / Decimal(str(53475874637)) == 9.0:
-
-						file_read = open(file, 'r')
-						lines = file_read.readlines()
-
-
-						for item in lines:
-							result += self.decode(key_guess, item)
-
-						file_read.close()
-
-						file_write = open(file, 'w')
-						file_write.writelines(result)
-						start.gui.write(result + "\n")
-						return
+	
+			except ValueError:
+				start.gui.write("Oops!  That was not an intereger.\n")
 	
 
-					if guess_numb == 1:
-						start.gui.write("You have " + str(guess_numb) + " guess left.\n")
-				
-						self.Decode_File(file, guess_numb)
+				if guess_numb < 1:
+					start.gui.write("You have no more guesses.\n")
+
+					file_read = open(file, 'r')
+					lines = file_read.readlines()
+					file_read.close()
+
+					lines[:] = []
+					file_write = open(file, 'w')
+					file_write.writelines(lines)
+					start.gui.quit()
 
 
-					elif guess_numb > 1:
-						start.gui.write("You have " + str(guess_numb) + " guesses left.\n")
-				
-						self.Decode_File(file, guess_numb)
-		
-		
-				except ValueError:
-					start.gui.write("Oops!  That was not an intereger.\n")
-		
-
-					if guess_numb == 1:
-						start.gui.write("You have " + str(guess_numb) + " guess left.\n")
-				
-						self.Decode_File(file, guess_numb)
+				elif guess_numb == 1:
+					start.gui.write("You have " + str(guess_numb) + " guess left.\n")
+			
+					self.Decode_File(file, guess_numb)
 
 
-					elif guess_numb > 1:
-						start.gui.write("You have " + str(guess_numb) + " guesses left.\n")
-						self.Decode_File(file, guess_numb)
-			return
+				elif guess_numb > 1:
+					start.gui.write("You have " + str(guess_numb) + " guesses left.\n")
+					self.Decode_File(file, guess_numb)
+		return
 		
 
 	def decode_new_key(self, result, big_key, user_guess):
