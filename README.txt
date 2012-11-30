@@ -55,5 +55,3 @@ new key. (If you say no, it will simply switch to custom key mode with the
 current user key.) You will have to enter the old key before ceating a new 
 one.
 
-
-
