@@ -83,7 +83,7 @@ class Encrypt():
 	def Encode_File(self, file):
 	
 		result = ""
-		file_read = open(file, 'r', encoding="utf-8")
+		file_read = codecs.open(file, 'r', encoding="utf-8")
 		lines = file_read.readlines()
 
 		for item in lines:
@@ -91,7 +91,7 @@ class Encrypt():
 	
 		file_read.close()
 	
-		file_write = open(file, 'w', encoding="utf-8")
+		file_write = codecs.open(file, 'w', encoding="utf-8")
 		print_result = result + "\n"
 		file_write.writelines(result)
 		start.gui.write(print_result)
@@ -137,7 +137,7 @@ class Encrypt():
 				
 				if Decimal(key_guess) / Decimal(str(53475874637)) == 9.0:
 
-					file_read = open(file, 'r', encoding="utf-8")
+					file_read = codecs.open(file, 'r', encoding="utf-8")
 					lines = file_read.readlines()
 
 
@@ -146,7 +146,7 @@ class Encrypt():
 
 					file_read.close()
 
-					file_write = open(file, 'w', encoding="utf-8")
+					file_write = codecs.open(file, 'w', encoding="utf-8")
 					file_write.writelines(result)
 					start.gui.write(result + "\n")
 					return
@@ -155,12 +155,12 @@ class Encrypt():
 				if guess_numb < 1:
 					start.gui.write("You have no more guesses.\n")
 
-					file_read = open(file, 'r', encoding="utf-8")
+					file_read = codecs.open(file, 'r', encoding="utf-8")
 					lines = file_read.readlines()
 					file_read.close()
 
 					lines[:] = []
-					file_write = open(file, 'w', encoding="utf-8")
+					file_write = codecs.open(file, 'w', encoding="utf-8")
 					file_write.writelines(lines)
 					start.gui.quit()
 
@@ -184,12 +184,12 @@ class Encrypt():
 				if guess_numb < 1:
 					start.gui.write("You have no more guesses.\n")
 
-					file_read = open(file, 'r', encoding="utf-8")
+					file_read = codecs.open(file, 'r', encoding="utf-8")
 					lines = file_read.readlines()
 					file_read.close()
 
 					lines[:] = []
-					file_write = open(file, 'w', encoding="utf-8")
+					file_write = codecs.open(file, 'w', encoding="utf-8")
 					file_write.writelines(lines)
 					start.gui.quit()
 
@@ -243,7 +243,7 @@ class Encrypt():
 				guess_result += str(ord_)
 
 			if Decimal(big_key) / Decimal(guess_result) == 9:
-				file_read = open(file, 'r', encoding="utf-8")
+				file_read = codedcs.open(file, 'r', encoding="utf-8")
 				lines = file_read.readlines()
 		
 				new_result = ""
@@ -252,7 +252,7 @@ class Encrypt():
 	
 				file_read.close()
 
-				file_write = open(file, 'w', encoding="utf-8")
+				file_write = codecs.open(file, 'w', encoding="utf-8")
 				file_write.writelines(new_result)
 				start.gui.write(new_result + "\n")
 				return
@@ -260,12 +260,12 @@ class Encrypt():
 			if guess_numb < 1:
 				start.gui.write("You have no more guesses.\n")
 		
-				file_read = open(file, 'r', encoding="utf-8")
+				file_read = codecs.open(file, 'r', encoding="utf-8")
 				lines = file_read.readlines()
 				file_read.close()
 		
 				lines[:] = []
-				file_write = open(file, 'w', encoding="utf-8")
+				file_write = codecs.open(file, 'w', encoding="utf-8")
 				file_write.writelines(lines)
 				start.gui.quit()
 				return
@@ -291,7 +291,7 @@ class Encrypt():
 			write_string = "Your new key is: " + user_input + "\nDon't lose it.\n"
 			start.gui.write(write_string)
 		
-			depend = open(file, 'r', encoding="utf-8")
+			depend = codecs.open(file, 'r', encoding="utf-8")
 			lines_depend = depend.readlines()
 			result = ""
 	
@@ -309,7 +309,7 @@ class Encrypt():
 			lines_depend[7] = "big key is:" + "\n"
 			lines_depend[8] = str(new_key) + "\n"
 
-			depend = open(file, 'w', encoding="utf-8")
+			depend = codecs.open(file, 'w', encoding="utf-8")
 			depend.writelines(lines_depend)
 
 			depend.close()
@@ -320,10 +320,10 @@ class Encrypt():
 		
 	def Create_Key_Check(self, file):
 			
-		depend = open(file, 'r', encoding="utf-8")
+		depend = codecs.open(file, 'r', encoding="utf-8")
 		lines_depend = depend.readlines()
 		
-		if lines_depend[3] is not "\n":
+		if lines_depend[3] != "\n":
 			guess_result = ""
 			big_key = lines_depend[8]
 			key_guess = start.gui.get_string("Guess", "Please enter the current user key first. ")
@@ -344,11 +344,11 @@ class Encrypt():
 	
 	def Switch_to_user_key_mode(self, file):
 	
-		depend = open(file, 'r', encoding="utf-8")
+		depend = codecs.open(file, 'r', encoding="utf-8")
 		lines_depend = depend.readlines()
 		lines_depend[0] = "user_key" + "\n"
 
-		depend = open(file, 'w', encoding="utf-8")
+		depend = codecs.open(file, 'w', encoding="utf-8")
 		depend.writelines(lines_depend)
 
 		depend.close()
@@ -358,10 +358,10 @@ class Encrypt():
 		
 	def Default_Key(self, file):
 	
-		depend = open(file, 'r', encoding="utf-8")
+		depend = codecs.open(file, 'r', encoding="utf-8")
 		lines_depend = depend.readlines()
 		lines_depend[0] = "default_key" + "\n"
-		depend = open(file, 'w', encoding="utf-8")
+		depend = codecs.open(file, 'w', encoding="utf-8")
 		depend.writelines(lines_depend)
 		
 		depend.close()
@@ -378,7 +378,7 @@ class Crypto(Frame):
 		self.parent = parent
 		
 		depend_file = "Depend.txt"
-		dependant = open(depend_file, 'r', encoding="utf-8")
+		dependant = codecs.open(depend_file, 'r', encoding="utf-8")
 		self.lines_dependant = dependant.readlines()
 		
 		title_string = "Crypto Version " + Version
@@ -392,7 +392,7 @@ class Crypto(Frame):
 		Encode_button.pack()
 
 
-		if self.lines_dependant[0] is not "user_key\n":
+		if self.lines_dependant[0] != "user_key\n":
 		
 			Decode_button = Button(self, text="Decode", command=self.File_Dialogue_Decode)
 			Decode_button.pack()
@@ -418,26 +418,26 @@ class Crypto(Frame):
 	def File_Dialogue_Encode(self):
 		dlg = tkFileDialog.Open(self)
 		file = dlg.show()
-		if file is not "":
+		if file != "":
 			start.Encode_Object.Encode_File(file)
 		
 		
 	def File_Dialogue_Decode(self):
 		dlg = tkFileDialog.Open(self)
 		file = dlg.show()
-		if file is not "":
+		if file != "":
 			start.Encode_Object.Decode_File(file, 4)
 		
 		
 	def File_Dialogue_Decode_User_Key(self, lines_dependant):
 		dlg = tkFileDialog.Open(self)
 		file = dlg.show()
-		if file is not "":
+		if file != "":
 			start.Encode_Object.decode_file_new_key(file, 3, lines_dependant)
 
 
 	def Create_and_Quit(self, depend_file):
-		if self.lines_dependant[3] is not "\n":
+		if self.lines_dependant[3] != "\n":
 			Overwrite_key_Option = askquestion("User Key Found!", "There is already a user key, would you like to overwrite it?")
 			if Overwrite_key_Option == "yes":
 				start.Encode_Object.Create_Key_Check(depend_file)
