@@ -1,5 +1,5 @@
 Crypto Change Log
-Current Version 1.4.8
+Current Version 1.4.9
 
 Alpha 0.0.1:
 *Added encode
@@ -104,5 +104,8 @@ creating a new one)
 (Both errors that come up when a user presses cancel in Tkinter)
 *Fixed a bug that prevented decode from working correctly.
 * Added CC Lincense
+* K900 gave me code to perform a version check in the same script as the main program
+(Now everything fits in one nice small script.)
+
 
 END CHANGE LOG

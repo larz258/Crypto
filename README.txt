@@ -13,18 +13,18 @@ or send a letter to Creative Commons,
 Crypto is a simple substition cipher that can be used to encrypt files. 
 It should be noted this program is not intended to keep files secure, it 
 is more of a concept than anything. It is important that you know not to 
-use this program on sentsitive data.
+use this program to attempt to disguise sentsitive data.
 
 
 
 2. How is Crypto used?
 
 Crypto is just a script, so it does not need to be installed. To 
-run Crypto use your Terminal's Python command from the Crypto directory
-or right click on and select open with Python Launcher. I've provided 
-a version for Python 2.7, 3.0 and 3.3, Crypto.py will intuitively launch 
-the version you're using.
+run it use your terminal's python commmand or right click on and 
+select open with Python Launcher. I've provided a version for Python 2 and 
+Python 3, Crypto.py will intuitively launch the version your system requires.
 (slow clap)
+
 
 Once you have opened the program simply select encode and pick a 
 file. 
@@ -62,4 +62,4 @@ current user key.) You will have to enter the old key before ceating a new
 one.
 
 
-Copyright: Lars Schweighauser. 2012
+
