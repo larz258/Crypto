@@ -13,26 +13,32 @@ http://opensource.org/licenses/gpl-3.0.html
 Huge thanks to K900 (GitHub)/K900_ (Reddit) for solving the Python version check.
 (Now everything fits into one nice little script.)
 And for telling me that the hashbang needs to be in the first line. 
-And for being awesomein general.
-
+And for being awesome in general.
 
 The default key is: 481282871733
 No other number will work in default mode
-python 2.7 compatable 
 """
 
 
-Version = "1.4.9"
-Status = "Stable"
+Version = "1.5.0"
+
+Python_2_7_Status = "Stable"
+Python_3_0_Status = "Unstable"
+Python_3_3_Status = "Unstable"
+
 
 from decimal import *
 import sys
-#import codecs
+import codecs
 
 
-if sys.version_info[0] == 2 and sys.version_info[1] >= 7:
+if sys.version_info[0] == 1:
+	print("The 90s called they want their Python 1 back.")
+	sys.exit(1)
+
+
+elif sys.version_info[0] == 2 and sys.version_info[1] >= 7:
 	
-	from io import open
 	from Tkinter import *
 	from tkMessageBox import askquestion
 	from tkSimpleDialog import askstring
@@ -45,9 +51,9 @@ elif sys.version_info[0] == 3:
 	from tkinter.simpledialog import askstring
 	import tkinter.filedialog as tkFileDialog
     
-    
+
 else:
-	print("The 90s called and said they wanted their Python " + str(sys.version[:5]) + " back!\n")
+	print ("Crypto does not support Python " + sys.version[0:5:1] + ".\n")
 	sys.exit(1)
 
 
@@ -84,7 +90,7 @@ class Encrypt(object):
 	def encode_file(self, file):
 	
 		encode_result = ""
-		file_read = open(file, 'r')
+		file_read = codecs.open(file, 'r', encoding="utf-8")
 		lines = file_read.readlines()
 
 		for l in lines:
@@ -92,7 +98,7 @@ class Encrypt(object):
 	
 		file_read.close()
 	
-		file_write = open(file, 'w')
+		file_write = codecs.open(file, 'w', encoding="utf-8")
 		file_write.writelines(encode_result)
 		Start.GUI.write(encode_result + "\n")
 
@@ -123,10 +129,12 @@ class Encrypt(object):
 	def decode_file(self, file, guess_numb):
 		result = ""
 		
-				
 		key_guess = Start.GUI.get_string("Guess", "Give me a key to try:")
 		
-		if key_guess is not None:
+		if key_guess == "":
+			Start.GUI.write("You didn't enter anything.")
+		
+		elif key_guess is not None:
 		
 			guess_numb -= 1
 
@@ -136,7 +144,7 @@ class Encrypt(object):
 				
 				if Decimal(key_guess) / Decimal(str(53475874637)) == 9.0:
 
-					file_read = open(file, 'r')
+					file_read = codecs.open(file, 'r', encoding="utf-8")
 					lines = file_read.readlines()
 
 
@@ -145,7 +153,7 @@ class Encrypt(object):
 
 					file_read.close()
 
-					file_write = open(file, 'w')
+					file_write = codecs.open(file, 'w', encoding="utf-8")
 					file_write.writelines(result)
 					Start.GUI.write(result + "\n")
 					return
@@ -154,12 +162,12 @@ class Encrypt(object):
 				if guess_numb < 1:
 					Start.GUI.write("You have no more guesses.\n")
 
-					file_read = open(file, 'r')
+					file_read = codecs.open(file, 'r', encoding="utf-8")
 					lines = file_read.readlines()
 					file_read.close()
 
 					lines[:] = []
-					file_write = open(file, 'w')
+					file_write = codecs.open(file, 'w', encoding="utf-8")
 					file_write.writelines(lines)
 					Start.GUI.quit()
 
@@ -183,12 +191,12 @@ class Encrypt(object):
 				if guess_numb < 1:
 					Start.GUI.write("You have no more guesses.\n")
 
-					file_read = open(file, 'r')
+					file_read = codecs.open(file, 'r', encoding="utf-8")
 					lines = file_read.readlines()
 					file_read.close()
 
 					lines[:] = []
-					file_write = open(file, 'w')
+					file_write = codecs.open(file, 'w', encoding="utf-8")
 					file_write.writelines(lines)
 					Start.GUI.quit()
 
@@ -242,7 +250,7 @@ class Encrypt(object):
 				guess_result += str(ord_)
 
 			if Decimal(big_key) / Decimal(guess_result) == 9:
-				file_read = open(file, 'r')
+				file_read = codecs.open(file, 'r', encoding="utf-8")
 				lines = file_read.readlines()
 		
 				new_result = ""
@@ -251,7 +259,7 @@ class Encrypt(object):
 	
 				file_read.close()
 
-				file_write = open(file, 'w')
+				file_write = codecs.open(file, 'w', encoding="utf-8")
 				file_write.writelines(new_result)
 				Start.GUI.write(new_result + "\n")
 				return
@@ -259,12 +267,12 @@ class Encrypt(object):
 			if guess_numb < 1:
 				Start.GUI.write("You have no more guesses.\n")
 		
-				file_read = open(file, 'r')
+				file_read = codecs.open(file, 'r', encoding="utf-8")
 				lines = file_read.readlines()
 				file_read.close()
 		
 				lines[:] = []
-				file_write = open(file, 'w')
+				file_write = codecs.open(file, 'w', encoding="utf-8")
 				file_write.writelines(lines)
 				Start.GUI.quit()
 				return
@@ -290,7 +298,7 @@ class Encrypt(object):
 			write_string = "Your new key is: " + user_input + "\nDon't lose it.\n"
 			Start.GUI.write(write_string)
 		
-			depend = open(file, 'r')
+			depend = codecs.open(file, 'r', encoding="utf-8")
 			lines_depend = depend.readlines()
 			result = ""
 	
@@ -308,7 +316,7 @@ class Encrypt(object):
 			lines_depend[7] = "big key is:" + "\n"
 			lines_depend[8] = str(new_key) + "\n"
 
-			depend = open(file, 'w')
+			depend = codecs.open(file, 'w', encoding="utf-8")
 			depend.writelines(lines_depend)
 
 			depend.close()
@@ -319,7 +327,7 @@ class Encrypt(object):
 		
 	def create_key_check(self, file):
 			
-		depend = open(file, 'r')
+		depend = codecs.open(file, 'r', encoding="utf-8")
 		lines_depend = depend.readlines()
 		
 		if lines_depend[3] != "\n":
@@ -343,11 +351,11 @@ class Encrypt(object):
 	
 	def switch_to_user_key_mode(self, file):
 	
-		depend = open(file, 'r')
+		depend = codecs.open(file, 'r', encoding="utf-8")
 		lines_depend = depend.readlines()
 		lines_depend[0] = "user_key" + "\n"
 
-		depend = open(file, 'w')
+		depend = codecs.open(file, 'w', encoding="utf-8")
 		depend.writelines(lines_depend)
 
 		depend.close()
@@ -357,10 +365,10 @@ class Encrypt(object):
 		
 	def default_key(self, file):
 	
-		depend = open(file, 'r')
+		depend = codecs.open(file, 'r', encoding="utf-8")
 		lines_depend = depend.readlines()
 		lines_depend[0] = "default_key" + "\n"
-		depend = open(file, 'w')
+		depend = codecs.open(file, 'w', encoding="utf-8")
 		depend.writelines(lines_depend)
 		
 		depend.close()
@@ -369,7 +377,7 @@ class Encrypt(object):
 		return
 				
 				
-class Crypto(Frame, object):
+class Crypto(Frame):
 
 
 	def init_ui(self, parent):
@@ -377,7 +385,7 @@ class Crypto(Frame, object):
 		self.parent = parent
 		
 		depend_file = "Depend.txt"
-		dependant = open(depend_file, 'r')
+		dependant = codecs.open(depend_file, 'r', encoding="utf-8")
 		self.lines_dependant = dependant.readlines()
 		
 		title_string = "Crypto Version " + Version
@@ -425,7 +433,7 @@ class Crypto(Frame, object):
 		dlg = tkFileDialog.Open(self)
 		file = dlg.show()
 		if file != "":
-			Start.Encode_Object.Decode_File(file, 4)
+			Start.Encode_Object.decode_file(file, 4)
 		
 		
 	def file_dialogue_decode_user_key(self, lines_dependant):

@@ -109,10 +109,28 @@ creating a new one)
 * Changed to GPLv3 License
 * Updated variable/function/class names to PEP8 standard. 
 (will tackle indenting next.)
-* Switched to "from io import open" for Python 2.7
 as suggested by takluyver (Reddit)
 * Switched to new style classes
 as suggested by kbrafford (Reddit)s
+
+
+Release 1.5:
+* All of these new changes have caused issues with Python 3,
+so I've focussed development on Python 2.7
+(once I've finished core code, I will work on functionality.)
+Scrypto:
+* Created a branch of Crypto called Scrypto for more secure
+and personalized encoding.
+* Removed 35 or so unnecessary lines. 
+* Began preperation for removal of default key mode
+* Removed the default key mode
+* Changed the way custom keys are created so that they do not always substitute by 9.
+* Program now asks for a cipher offset on Create Key.
+* Program disguises the key in Depend.txt
+(Will try to creatively cover up for the offset as well.
+I'm thinking something from the random module might do the trick.)
+* Made encode and decode tell the user to create a key before launching.
+(Might have them launch Create New Key at a future date.)
 
 
 END CHANGE LOG
