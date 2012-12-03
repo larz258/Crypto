@@ -20,7 +20,7 @@ No other number will work in default mode
 """
 
 
-Version = "1.5.0"
+Version = "1.6.0"
 
 Python_2_7_Status = "Stable"
 Python_3_0_Status = "Unstable"
@@ -70,18 +70,18 @@ class Encrypt(object):
 	def encode(self, string):
 	
 		result = ""
-		
+
 		for char in string:
 			str_ord = ord(char)
-		
+			
 			if 247 <= str_ord <= 256:
-				str_chr = str_ord - 215
+				str_chr = str_ord - 215 - 1
 
-			elif str_ord >= 32:
-				str_chr = str_ord + 9 + 1
+			elif str_ord >= 33:
+				str_chr = str_ord + 9 + 1 - 1
 
 			else:
-				str_chr = str_ord
+				str_chr = str_ord# - py3_subtract
 			
 			result += chr(str_chr)	
 		return result
@@ -110,21 +110,20 @@ class Encrypt(object):
 
 		for char in line:
 			str_ord = ord(char)
-			
-			if 32 <= str_ord <= 41:
+
+			if 33 <= str_ord <= 42:
 				str_chr = str_ord + int(real_key) + 206
-				decode_result += chr(str_chr)	
 				
-			elif str_ord >= 42:
-				str_chr = str_ord - int(real_key) - 1
-				decode_result += chr(str_chr)	
+
+			elif str_ord >= 43:
+				str_chr = str_ord - int(real_key)	
+		
 				
 			else:
-				str_chr = str_ord
-				decode_result += chr(str_chr)	
-
+				str_chr = str_ord #-1
+				
+			decode_result += chr(str_chr)	
 		return decode_result
-
 
 	def decode_file(self, file, guess_numb):
 		result = ""
@@ -142,7 +141,7 @@ class Encrypt(object):
 				
 				key_guess = int(key_guess)
 				
-				if Decimal(key_guess) / Decimal(str(53475874637)) == 9.0:
+				if Decimal(key_guess) / Decimal(str(53475874637)) == 9:
 
 					file_read = codecs.open(file, 'r', encoding="utf-8")
 					lines = file_read.readlines()
@@ -217,22 +216,26 @@ class Encrypt(object):
 	
 		decode_result = ""
 		real_key = (int(big_key)/int(user_guess))
-	
+			
+
+		py3_subtract = 0
+		if sys.version[0] == "3":
+			py3_subtract = 1
 		for char in line:
 			str_ord = ord(char)
-			
-			if 32 <= str_ord <= 41:
+
+			if 33 <= str_ord <= 42:
 				str_chr = str_ord + int(real_key) + 206
-				decode_result += chr(str_chr)
 				
-			elif str_ord >= 42:
-				str_chr = str_ord - int(real_key) - 1
-				decode_result += chr(str_chr)	
+
+			elif str_ord >= 43:
+				str_chr = str_ord - int(real_key) - py3_subtract
+		
 				
 			else:
 				str_chr = str_ord
-				decode_result += chr(str_chr)	
-
+				
+			decode_result += chr(str_chr)	
 		return decode_result
 
 

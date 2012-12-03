@@ -5,13 +5,13 @@ A version should have been included with Crypto (LICENSE.txt)
 If you cannot find it, you can read the full license at:
 http://opensource.org/licenses/gpl-3.0.html
 
+
 1. What is Crypto?
 
 Crypto is a simple substition cipher that can be used to encrypt files. 
 It should be noted this program is not intended to keep files secure, it 
 is more of a concept than anything. It is important that you know not to 
 use this program to attempt to disguise sentsitive data.
-
 
 
 2. How is Crypto used?

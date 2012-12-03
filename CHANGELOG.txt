@@ -133,4 +133,8 @@ I'm thinking something from the random module might do the trick.)
 (Might have them launch Create New Key at a future date.)
 
 
+Rlease 1.6:
+* Fixed bugs that prevented Python 3 from working.
+
+
 END CHANGE LOG
