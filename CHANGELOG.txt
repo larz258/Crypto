@@ -137,7 +137,7 @@ Rlease 1.6:
 * Fixed bugs that prevented Python 3 from working.
 * Made indentation match PEP8
 (used flake8)
-* Coverted strings to lists where necessary to prevent possible crashes.
+* Converted strings to lists where necessary to prevent possible crashes.
 
 
 END CHANGE LOG
