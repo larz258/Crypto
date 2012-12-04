@@ -19,7 +19,7 @@ The default key is: 481282871733
 No other number will work in default mode
 """
 
-Version = "1.6.1"
+Version = "1.6.2"
 Crypto_Status = "Stable"
 
 #Python_2_7_Status = "Stable"
@@ -59,7 +59,7 @@ class Encrypt(object):
         self.root = root
 
     def encode(self, string):
-        result = ""
+        result = []
         for char in string:
             str_ord = ord(char)
 
@@ -72,27 +72,24 @@ class Encrypt(object):
             else:
                 str_chr = str_ord
 
-            result += chr(str_chr)
-        return result
+            result.append(chr(str_chr))
+        return ''.join(result)
 
     def encode_file(self, file):
-
-        encode_result = ""
+        encode_result = []
         file_read = codecs.open(file, 'r', encoding="utf-8")
         lines = file_read.readlines()
 
         for l in lines:
-            encode_result += self.encode(l)
-
+            encode_result.append(self.encode(l))
         file_read.close()
 
         file_write = codecs.open(file, 'w', encoding="utf-8")
-        file_write.writelines(encode_result)
-        Start.GUI.write(encode_result + "\n")
+        file_write.writelines(''.join(encode_result))
+        Start.GUI.write(''.join(encode_result) + "\n")
 
     def decode(self, key_guess, line):
-
-        decode_result = ""
+        decode_result = []
         real_key = (int(key_guess) / 53475874637)
 
         for char in line:
@@ -107,11 +104,11 @@ class Encrypt(object):
             else:
                 str_chr = str_ord
 
-            decode_result += chr(str_chr)
-        return decode_result
+            decode_result.append(chr(str_chr))
+        return ''.join(decode_result)
 
     def decode_file(self, file, guess_numb):
-        result = ""
+        result = []
 
         key_guess = Start.GUI.get_string("Guess", "Give me a key to try:")
         if key_guess == "":
@@ -131,13 +128,12 @@ class Encrypt(object):
                     lines = file_read.readlines()
 
                     for item in lines:
-                        result += self.decode(key_guess, item)
-
+                        result.append(self.decode(key_guess, item))
                     file_read.close()
 
                     file_write = codecs.open(file, 'w', encoding="utf-8")
-                    file_write.writelines(result)
-                    Start.GUI.write(result + "\n")
+                    file_write.writelines(''.join(result))
+                    Start.GUI.write(''.join(result) + "\n")
                     return
 
                 if guess_numb < 1:
@@ -189,7 +185,7 @@ class Encrypt(object):
         return
 
     def decode_new_key(self, line, big_key, user_guess):
-        decode_result = ""
+        decode_result = []
         real_key = (int(big_key) / int(user_guess))
 
         py3_subtract = 0
@@ -207,14 +203,13 @@ class Encrypt(object):
             else:
                 str_chr = str_ord
 
-            decode_result += chr(str_chr)
-        return decode_result
+            decode_result.append(chr(str_chr))
+        return ''.join(decode_result)
 
     def decode_file_new_key(self, file, guess_numb, lines_dependant):
 
         guess_result = ""
         big_key = lines_dependant[8]
-
         key_guess = Start.GUI.get_string("Guess", "Give me a key to try: ")
 
         if key_guess is not None:
@@ -227,14 +222,15 @@ class Encrypt(object):
                 file_read = codecs.open(file, 'r', encoding="utf-8")
                 lines = file_read.readlines()
 
-                new_result = ""
+                new_result = []
                 for item in lines:
-                    new_result += self.decode_new_key(item, big_key,
-                                                      guess_result)
+                    new_result.append(self.decode_new_key(item, big_key,
+                                                          guess_result))
+
                 file_read.close()
                 file_write = codecs.open(file, 'w', encoding="utf-8")
-                file_write.writelines(new_result)
-                Start.GUI.write(new_result + "\n")
+                file_write.writelines(''.join(new_result))
+                Start.GUI.write(''.join(new_result) + "\n")
                 return
 
             if guess_numb < 1:
